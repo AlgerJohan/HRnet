@@ -24,7 +24,7 @@ const Homepage = () => {
           <legend>Address</legend>
           <Fieldset data={data2} />
         </fieldset>
-        <label htmlFor="department">Department</label>
+        <label className="department">Department</label>
         <select name="department" id="department">
           <Option data={data3} />
         </select>
