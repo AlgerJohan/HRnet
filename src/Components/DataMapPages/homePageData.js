@@ -9,16 +9,6 @@ export const data = [
     type: "text",
     id: "last-name",
   },
-  {
-    title: "Date of Birth",
-    type: "text",
-    id: "date-of-birth",
-  },
-  {
-    title: "Start Date",
-    type: "text",
-    id: "start-date",
-  },
 ];
 export const data2 = [
   {
@@ -62,5 +52,43 @@ export const data3 = [
   {
     title3: "Legal",
     type: "text",
+  },
+];
+export const columns = [
+  {
+    title: "First Name",
+    data: "firstName",
+  },
+  {
+    title: "Last Name",
+    data: "lastName",
+  },
+  {
+    title: "Start Date",
+    data: "startDate",
+  },
+  {
+    title: "Department",
+    data: "department",
+  },
+  {
+    title: "Date of Birth",
+    data: "dateOfBirth",
+  },
+  {
+    title: "Street",
+    data: "street",
+  },
+  {
+    title: "City",
+    data: "city",
+  },
+  {
+    title: "State",
+    data: "state",
+  },
+  {
+    title: "Zip Code",
+    data: "zipCode",
   },
 ];
