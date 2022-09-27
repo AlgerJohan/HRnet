@@ -17,19 +17,16 @@ const Homepage = () => {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
-  // const [startDate, setStartDate] = useState("");
-  // const [dateOfBirth, setDateOfBirth] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [startDate, setStartDate] = useState("");
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEmployees({ firstName, lastName, street, city, state, zipCode, department }));
+    dispatch(addEmployees({ firstName, lastName, street, city, state, zipCode, department, dateOfBirth, startDate }));
   };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(addEmployees(editData()));
-  // };
+
   return (
     <div className="container">
       <div className="title">
@@ -54,8 +51,8 @@ const Homepage = () => {
             <label htmlFor="last-name">Last Name</label>
             <input type="text" className="input-name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
           </div>
-          <DateOfBirth />
-          <StartDate />
+          <DateOfBirth setDateOfBirth={setDateOfBirth} value={dateOfBirth} />
+          <StartDate setStartDate={setStartDate} value={startDate} />
           <fieldset className="address">
             <legend>Address</legend>
 

@@ -13,5 +13,5 @@ export const homePage = createSlice({
 });
 
 export const { addEmployees } = homePage.actions;
-export const selectEmployees = (state) => state.employees.employees;
+export const selectEmployees = (state) => state.homePage.employees;
 export default homePage.reducer;

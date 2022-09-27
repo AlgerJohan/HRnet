@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useSelector } from "react-redux";
 
-const ChooseDateOfBirth = () => {
-  const [selectedDate, setSelectedDate] = useState("");
-  const date = useSelector((state) => state.homePage.dateOfBirth);
+const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
   return (
     <div className="date">
       <p>Date of Birth</p>
-      <DatePicker
-        className="dateOfBirth"
-        selected={selectedDate}
-        date={date}
-        onChange={(date) => setSelectedDate(date)}
-      />
+      <DatePicker className="dateOfBirth" selected={value} date={value} onChange={(date) => setDateOfBirth(date)} />
     </div>
   );
 };
