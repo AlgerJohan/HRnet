@@ -24,7 +24,10 @@
       margin-bottom: 44px;
       fieldset {
         box-shadow: 0px 0px 10px 3px rgb(0 0 0 / 10%);
-        #address-name {
+        #street,
+        #city,
+        #state,
+        #zip-code {
           border-radius: 4px;
           border: 2px;
           width: 32rem;
@@ -33,6 +36,7 @@
           outline-color: #625fed;
           font-size: 2rem;
           color: #625fed;
+          cursor: pointer;
         }
       }
       label {
@@ -41,7 +45,7 @@
         margin-bottom: 10px;
         font-weight: 500;
       }
-      #input-name {
+      .input-name {
         border-radius: 4px;
         border: 2px;
         width: 32rem;
@@ -50,6 +54,7 @@
         outline-color: #625fed;
         font-size: 2rem;
         color: #625fed;
+        cursor: pointer;
       }
 
       .address {
@@ -65,6 +70,7 @@
         font-weight: bold;
         font-size: 1.5rem;
         box-shadow: 0px 0px 10px 3px rgb(0 0 0 / 25%);
+        cursor: pointer;
       }
       .save:hover {
         background-color: #625fed;
@@ -79,18 +85,17 @@
         width: 32rem;
         height: 4rem;
         box-shadow: 0px 0px 10px 3px rgb(0 0 0 / 25%);
-        font-weight: bold;
         color: #625fed;
-        font-size: 1rem;
         outline-color: #625fed;
+        font-size: 2rem;
         option {
           font-weight: bold;
           color: #625fed;
           font-size: 1rem;
         }
       }
-      .department {
-        margin-right: 26.9rem;
+      #department {
+        cursor: pointer;
       }
       .date {
         p {
@@ -98,6 +103,10 @@
           margin-top: 1rem;
           margin-bottom: 10px;
           font-weight: 500;
+        }
+        .datePiker,
+        .dateOfBirth {
+          cursor: pointer;
         }
         .react-datepicker__input-container input {
           border-radius: 4px;
@@ -111,5 +120,17 @@
         }
       }
     }
+  }
+  #confirmation {
+    display: none;
+  }
+  #confirmation.show {
+    display: block;
+    position: relative;
+    top: -31rem;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

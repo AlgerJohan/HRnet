@@ -1,45 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/homepage .css";
 import { Link } from "react-router-dom";
-import Home from "./DataMapPages/home";
-import Fieldset from "./DataMapPages/fieldset";
-import Option from "./DataMapPages/option";
+// import Name from "./DataMapPages/name";
+// import Fieldset from "./DataMapPages/fieldset";
+// import Department from "./DataMapPages/Department";
 import StartDate from "./datePiker";
 import DateOfBirth from "./dateOfBirth";
-import { data, data2, data3 } from "./DataMapPages/homePageData";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setValue } from "../features/homePageSLice";
-
+import { useDispatch } from "react-redux";
+import { addEmployees } from "../features/homePageSLice";
+import { states } from "./DataMapPages/homePageData";
 const Homepage = () => {
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState(null);
-  // const [startDate, setStartDate] = useState(null);
-  // const [zipCode, setZipCode] = useState(null);
-  // const [department, setDepartment] = useState(null);
-  // const [birth, setBirth] = useState(null);
-  // const [street, setStreet] = useState(null);
-  // const [city, setCity] = useState(null);
-  // const [State, setState] = useState(null);
-  // const values = {
-  //   // firstName,
-  //   // lastName,
-  //   // startDate,
-  //   // zipCode,
-  //   // department,
-  //   birth,
-  //   // street,
-  //   // city,
-  //   // State,
-  // };
-  // console.log(values);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [department, setDepartment] = useState("");
+  // const [startDate, setStartDate] = useState("");
+  // const [dateOfBirth, setDateOfBirth] = useState("");
 
-  // const value = useSelector((state) => state.homePage.value);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(setValue());
-    // console.log(setValue());
+    dispatch(addEmployees({ firstName, lastName, street, city, state, zipCode, department }));
   };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(addEmployees(editData()));
+  // };
   return (
     <div className="container">
       <div className="title">
@@ -51,21 +41,57 @@ const Homepage = () => {
         </Link>
         <h2>Create Employee</h2>
         <form id="create-employee" onSubmit={(e) => handleSubmit(e)}>
-          <Home data={data} />
+          {/* <Name /> */}
+          <div>
+            <label htmlFor="first-name">First Name</label>
+            <input
+              type="text"
+              className="input-name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
 
+            <label htmlFor="last-name">Last Name</label>
+            <input type="text" className="input-name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          </div>
           <DateOfBirth />
           <StartDate />
           <fieldset className="address">
             <legend>Address</legend>
-            <Fieldset data={data2} />
+
+            <label htmlFor="street">Street</label>
+            <input id="street" type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
+
+            <label htmlFor="city">City</label>
+            <input id="city" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+
+            <label htmlFor="state">State</label>
+            <select name="state" id="state" value={state} onChange={(e) => setState(e.target.value)}>
+              <option value="">Select a state</option>
+              {states.map((state) => (
+                <option key={state.abbreviation} value={state.name}>
+                  {state.name}
+                </option>
+              ))}
+            </select>
+
+            <label htmlFor="zip-code">Zip Code</label>
+            <input id="zip-code" type="number" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
           </fieldset>
-          <label htmlFor="department" className="department">
-            Department
-          </label>
-          <select name="department" id="department">
-            <Option data={data3} />
+          {/* <Fieldset /> */}
+          {/* <Department /> */}
+          <label htmlFor="department">Department</label>
+          <select value={department} name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
+            <option value="">Select a department</option>
+            <option value="Sales">Sales</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Legal">Legal</option>
           </select>
-          <button className="save">Save</button>
+          <button type="submit" className="save">
+            Save
+          </button>
         </form>
       </div>
       {/* <div id="confirmation" className="modal">

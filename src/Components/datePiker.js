@@ -3,12 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const ChooseDate = () => {
-  let [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
 
   return (
     <div className="date">
       <p>Start Date</p>
-      <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+      <DatePicker className="datePiker" selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
     </div>
   );
 };

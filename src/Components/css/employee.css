@@ -1,6 +1,34 @@
-.container {
+#employee-div {
+  height: auto;
   background-color: #625fed;
 }
-.container .link {
+#employee-div h1 {
+  text-align: center;
+  color: #fff;
+}
+#employee-div #linkReturn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 10px;
+  border: 2px;
+  width: 18rem;
+  height: 3rem;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+#employee-div #linkReturn .link {
+  text-decoration: none;
   color: aquamarine;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+#employee-div #linkReturn:hover {
+  background-color: #625fed;
+}
+#employee-div #linkReturn:hover .link:hover {
+  color: #fff;
 }
