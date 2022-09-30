@@ -9,22 +9,30 @@ import DateOfBirth from "./dateOfBirth";
 import { useDispatch } from "react-redux";
 import { addEmployees } from "../features/homePageSLice";
 import { states } from "./DataMapPages/homePageData";
+import Modal from "./modal";
+
 const Homepage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [startDate, setStartDate] = useState("");
+  const [modal, setModal] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEmployees({ firstName, lastName, street, city, state, zipCode, department, dateOfBirth, startDate }));
+    if (firstName && lastName && dateOfBirth && startDate && street && city && state && zipCode && department) {
+      dispatch(addEmployees({ firstName, lastName, dateOfBirth, startDate, street, city, state, zipCode, department }));
+      setModal(true);
+    } else {
+      alert("Please fill out all fields");
+    }
   };
 
   return (
@@ -91,9 +99,7 @@ const Homepage = () => {
           </button>
         </form>
       </div>
-      {/* <div id="confirmation" className="modal">
-        Employee Created!
-      </div> */}
+      {modal && <Modal setModal={setModal} />}
     </div>
   );
 };

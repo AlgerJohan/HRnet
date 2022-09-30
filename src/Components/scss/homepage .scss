@@ -119,11 +119,18 @@
           color: #625fed;
         }
       }
+      .react-datepicker__month-container {
+        width: 21rem;
+      }
+      .react-datepicker {
+        background-color: #fff;
+      }
+      .react-datepicker__day-names {
+        margin: 0;
+      }
     }
   }
-  #confirmation {
-    display: none;
-  }
+
   #confirmation.show {
     display: block;
     position: relative;

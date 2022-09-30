@@ -117,8 +117,14 @@
   font-size: 2rem;
   color: #625fed;
 }
-.container #confirmation {
-  display: none;
+.container .blocPage #create-employee .react-datepicker__month-container {
+  width: 21rem;
+}
+.container .blocPage #create-employee .react-datepicker {
+  background-color: #fff;
+}
+.container .blocPage #create-employee .react-datepicker__day-names {
+  margin: 0;
 }
 .container #confirmation.show {
   display: block;

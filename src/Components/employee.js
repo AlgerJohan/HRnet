@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import { selectEmployees } from "../features/homePageSLice";
 const Employee = () => {
   const employee = useSelector(selectEmployees);
-  console.log(employee);
+
   return (
     <div id="employee-div">
       <h1>Current Employees</h1>
-      <DataTable />
+      <DataTable data={employee} />
       <div id="linkReturn">
         <Link to="/" className="link">
           Home

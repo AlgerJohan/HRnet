@@ -32,3 +32,26 @@
 #employee-div #linkReturn:hover .link:hover {
   color: #fff;
 }
+#employee-div .TUEFO {
+  position: relative;
+}
+#employee-div .kBhHpT {
+  position: absolute;
+  top: 102px;
+  left: 12px;
+}
+#employee-div .gnaqej {
+  position: absolute;
+  top: 99px;
+  left: 107px;
+}
+#employee-div .OHwJB::before {
+  content: "Showing ";
+}
+#employee-div .OHwJB::after {
+  content: " entries";
+}
+#employee-div .OHwJB {
+  position: sticky;
+  right: 148.4rem;
+}
