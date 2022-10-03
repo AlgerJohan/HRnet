@@ -4,6 +4,7 @@ import range from "lodash/range";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import "react-datepicker/dist/react-datepicker.css";
+
 const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
   const years = range(1960, getYear(new Date()) + 1, 1);
   const months = [

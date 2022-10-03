@@ -53,15 +53,11 @@ const FilterComponent = ({ filterText, onFilter, onClear }) => (
 const Filtering = (props) => {
   const [filterText, setFilterText] = useState("");
   const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+
   const filteredItems = props.data.filter(
-    (item) => item.name && item.name.toLowerCase().includes(filterText.toLowerCase())
+    (item) => item.firstName && item.firstName.toLowerCase().includes(filterText.toLowerCase())
   );
-  // const filteredItems = props.data.filter(
-  //   (item) => item.name && item.name.toLowerCase().includes(filterText.toLowerCase())
-  // );
-  // const filteredItems = props.data.filter(
-  //   (item) => item.name && item.name.toLowerCase().includes(filterText.toLowerCase())
-  // );
+  console.log(filteredItems);
 
   const subHeaderComponentMemo = useMemo(() => {
     const handleClear = () => {
@@ -127,7 +123,7 @@ const Filtering = (props) => {
   return (
     <DataTable
       columns={columns}
-      data={props.data}
+      data={filteredItems}
       pagination
       defaultSortFieldId={1}
       subHeader

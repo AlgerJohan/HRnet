@@ -30,8 +30,6 @@ const Homepage = () => {
     if (firstName && lastName && dateOfBirth && startDate && street && city && state && zipCode && department) {
       dispatch(addEmployees({ firstName, lastName, dateOfBirth, startDate, street, city, state, zipCode, department }));
       setModal(true);
-    } else {
-      alert("Please fill out all fields");
     }
   };
 
@@ -53,11 +51,18 @@ const Homepage = () => {
               type="text"
               className="input-name"
               value={firstName}
+              required
               onChange={(e) => setFirstName(e.target.value)}
             />
 
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" className="input-name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input
+              type="text"
+              className="input-name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
           <DateOfBirth setDateOfBirth={setDateOfBirth} value={dateOfBirth} />
           <StartDate setStartDate={setStartDate} value={startDate} />
@@ -65,28 +70,34 @@ const Homepage = () => {
             <legend>Address</legend>
 
             <label htmlFor="street">Street</label>
-            <input id="street" type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
+            <input id="street" type="text" value={street} required onChange={(e) => setStreet(e.target.value)} />
 
             <label htmlFor="city">City</label>
-            <input id="city" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+            <input id="city" type="text" value={city} required onChange={(e) => setCity(e.target.value)} />
 
             <label htmlFor="state">State</label>
-            <select name="state" id="state" value={state} onChange={(e) => setState(e.target.value)}>
+            <select name="state" id="state" value={state} required onChange={(e) => setState(e.target.value)}>
               <option value="">Select a state</option>
               {states.map((state) => (
-                <option key={state.abbreviation} value={state.name}>
+                <option key={state.abbreviation} value={state.name} required>
                   {state.name}
                 </option>
               ))}
             </select>
 
             <label htmlFor="zip-code">Zip Code</label>
-            <input id="zip-code" type="number" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+            <input id="zip-code" type="number" value={zipCode} required onChange={(e) => setZipCode(e.target.value)} />
           </fieldset>
           {/* <Fieldset /> */}
           {/* <Department /> */}
           <label htmlFor="department">Department</label>
-          <select value={department} name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
+          <select
+            value={department}
+            name="department"
+            id="department"
+            required
+            onChange={(e) => setDepartment(e.target.value)}
+          >
             <option value="">Select a department</option>
             <option value="Sales">Sales</option>
             <option value="Marketing">Marketing</option>

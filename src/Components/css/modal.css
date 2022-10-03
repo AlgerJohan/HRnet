@@ -29,6 +29,9 @@
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  color: #625fed;
-  border: 0;
+  background-color: #625fed;
+  border: 4px solid #fff;
+}
+#modalContainer #confirmation .modalClose p {
+  margin: 6px 26px 10px 26px;
 }

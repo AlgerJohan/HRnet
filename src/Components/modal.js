@@ -6,9 +6,9 @@ const Modal = ({ setModal }) => {
     <div id="modalContainer">
       <div id="confirmation" className="modal">
         Employee Created!
-        <button className="modalClose" onClick={() => setModal(false)}>
-          x
-        </button>
+        <div className="modalClose" onClick={() => setModal(false)}>
+          <p>X</p>
+        </div>
       </div>
     </div>
   );
