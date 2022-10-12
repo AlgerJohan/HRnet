@@ -5,6 +5,11 @@ import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import "react-datepicker/dist/react-datepicker.css";
 
+/**
+ * It's a function that takes in a value and a setDateOfBirth function and returns a DatePicker
+ * component that has a custom header.
+ * @returns A React component that renders a date picker.
+ */
 const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
   const years = range(1960, getYear(new Date()) + 1, 1);
   const months = [
@@ -70,6 +75,7 @@ const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
         )}
         selected={value}
         onChange={(date) => setDateOfBirth(date)}
+        dateFormat="dd/M/yyyy"
       />
       {/* <DatePicker className="dateOfBirth" selected={value} date={value} onChange={(date) => setDateOfBirth(date)} /> */}
     </div>

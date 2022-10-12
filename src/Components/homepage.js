@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./css/homepage .css";
 import { Link } from "react-router-dom";
-// import Name from "./DataMapPages/name";
-// import Fieldset from "./DataMapPages/fieldset";
-// import Department from "./DataMapPages/Department";
 import StartDate from "./datePiker";
 import DateOfBirth from "./dateOfBirth";
 import { useDispatch } from "react-redux";
@@ -12,6 +9,7 @@ import { states } from "./DataMapPages/homePageData";
 import Modal from "./modal";
 
 const Homepage = () => {
+  /* A hook that allows you to use state in a functional component. */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
@@ -21,18 +19,21 @@ const Homepage = () => {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
-  const [modal, setModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
-
+  /**
+   * If the user has entered all the required fields, then add the employee to the database.
+   * @param e - event
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (firstName && lastName && dateOfBirth && startDate && street && city && state && zipCode && department) {
       dispatch(addEmployees({ firstName, lastName, dateOfBirth, startDate, street, city, state, zipCode, department }));
-      setModal(true);
+      setShowModal(true);
     }
   };
-
+  /* Returning the JSX code. */
   return (
     <div className="container">
       <div className="title">
@@ -44,7 +45,6 @@ const Homepage = () => {
         </Link>
         <h2>Create Employee</h2>
         <form id="create-employee" onSubmit={(e) => handleSubmit(e)}>
-          {/* <Name /> */}
           <div>
             <label htmlFor="first-name">First Name</label>
             <input
@@ -68,13 +68,10 @@ const Homepage = () => {
           <StartDate setStartDate={setStartDate} value={startDate} />
           <fieldset className="address">
             <legend>Address</legend>
-
             <label htmlFor="street">Street</label>
             <input id="street" type="text" value={street} required onChange={(e) => setStreet(e.target.value)} />
-
             <label htmlFor="city">City</label>
             <input id="city" type="text" value={city} required onChange={(e) => setCity(e.target.value)} />
-
             <label htmlFor="state">State</label>
             <select name="state" id="state" value={state} required onChange={(e) => setState(e.target.value)}>
               <option value="">Select a state</option>
@@ -84,12 +81,10 @@ const Homepage = () => {
                 </option>
               ))}
             </select>
-
             <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" value={zipCode} required onChange={(e) => setZipCode(e.target.value)} />
           </fieldset>
-          {/* <Fieldset /> */}
-          {/* <Department /> */}
+
           <label htmlFor="department">Department</label>
           <select
             value={department}
@@ -105,12 +100,13 @@ const Homepage = () => {
             <option value="Human Resources">Human Resources</option>
             <option value="Legal">Legal</option>
           </select>
+
           <button type="submit" className="save">
             Save
           </button>
         </form>
       </div>
-      {modal && <Modal setModal={setModal} />}
+      <Modal show={showModal} />
     </div>
   );
 };

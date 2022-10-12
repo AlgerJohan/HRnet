@@ -1,10 +1,13 @@
 #employee-div {
   height: auto;
   background-color: #625fed;
+  padding-bottom: 1rem;
 }
 #employee-div h1 {
   text-align: center;
   color: #fff;
+  margin: 0;
+  padding: 1rem 0;
 }
 #employee-div #linkReturn {
   display: flex;
@@ -19,6 +22,7 @@
   height: 3rem;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 #employee-div #linkReturn .link {
   text-decoration: none;
@@ -39,11 +43,26 @@
   position: absolute;
   top: 102px;
   left: 12px;
+  text-indent: -9999px;
+  line-height: 0;
+}
+#employee-div .kBhHpT::after {
+  content: "Show";
+  text-indent: 0;
+  display: block;
+  line-height: initial;
+  margin-left: -5px;
 }
 #employee-div .gnaqej {
   position: absolute;
   top: 99px;
-  left: 107px;
+  left: 46px;
+}
+#employee-div .sc-llJcti::before {
+  content: "Hide";
+  position: absolute;
+  left: 3.1rem;
+  top: 2px;
 }
 #employee-div .OHwJB::before {
   content: "Showing ";
@@ -54,4 +73,5 @@
 #employee-div .OHwJB {
   position: sticky;
   right: 148.4rem;
+  margin: 0 5px;
 }

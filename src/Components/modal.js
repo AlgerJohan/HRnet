@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/modal.css";
+import PropTypes from "prop-types";
 
-const Modal = ({ setModal }) => {
+/**
+ * The modal is rendered if the showModal state is true and the show prop is true.
+ * @returns A modal component that is rendered when the show prop is true.
+ */
+const Modal = ({ show, title, titleButton }) => {
+  const [showModal, setShowModal] = useState(true);
+  const modalClose = () => {
+    setShowModal(false);
+  };
   return (
-    <div id="modalContainer">
-      <div id="confirmation" className="modal">
-        Employee Created!
-        <div className="modalClose" onClick={() => setModal(false)}>
-          <p>X</p>
+    showModal &&
+    show && (
+      <div id="modalContainer">
+        <div id="confirmation" className="modal">
+          <span>{title ? title : "Employee Created!"}</span>
+          <button className="modalClose" title="Hide Modal" onClick={modalClose}>
+            X
+          </button>
+          <div className="modalContent">
+            <button className="modalCloseEnd" title="close" onClick={modalClose}>
+              {titleButton ? titleButton : "Close"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  titleButton: PropTypes.string,
+};

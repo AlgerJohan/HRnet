@@ -5,6 +5,10 @@ import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import "react-datepicker/dist/react-datepicker.css";
 
+/**
+ * It's a custom date picker that allows the user to select a year and month from a dropdown menu.
+ * @returns A React component that renders a date picker.
+ */
 const ChooseDate = ({ value, setStartDate }) => {
   const years = range(1960, getYear(new Date()) + 1, 1);
   const months = [
@@ -70,9 +74,8 @@ const ChooseDate = ({ value, setStartDate }) => {
         )}
         selected={value}
         onChange={(date) => setStartDate(date)}
+        dateFormat="dd/M/yyyy"
       />
-
-      {/* <DatePicker className="datePiker" selected={value} date={value} onChange={(date) => setStartDate(date)} /> */}
     </div>
   );
 };
