@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addEmployees } from "../features/homePageSLice";
 import { states } from "./DataMapPages/homePageData";
 import Modal from "./modal";
+import PropTypes from "prop-types";
 
 const Homepage = () => {
   /* A hook that allows you to use state in a functional component. */
@@ -112,3 +113,15 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+Homepage.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  dateOfBirth: PropTypes.string,
+  startDate: PropTypes.string,
+  street: PropTypes.string,
+  city: PropTypes.string,
+  state: PropTypes.string,
+  zipCode: PropTypes.string,
+  department: PropTypes.string,
+};

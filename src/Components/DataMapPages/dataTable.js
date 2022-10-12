@@ -10,7 +10,7 @@ const TextField = styled.input`
   border-bottom-left-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border: 1px solid #e5e5e5;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 32px 0 16px;
 
   &:hover {
@@ -24,7 +24,7 @@ const ClearButton = styled.button`
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   height: 34px;
-  width: 32px;
+  width: 50px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ const columns = [
     sortable: true,
     selector: (row) => {
       const dateArray = row.startDate.split("T")[0].split("-");
-      return `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`;
+      return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
     },
   },
   {
@@ -65,7 +65,7 @@ const columns = [
     sortable: true,
     selector: (row) => {
       const dateArray = row.dateOfBirth.split("T")[0].split("-");
-      return `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`;
+      return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
     },
   },
   {

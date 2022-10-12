@@ -4,6 +4,7 @@ import range from "lodash/range";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
 
 /**
  * It's a function that takes in a value and a setDateOfBirth function and returns a DatePicker
@@ -82,3 +83,8 @@ const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
   );
 };
 export default ChooseDateOfBirth;
+
+ChooseDateOfBirth.propTypes = {
+  value: PropTypes.instanceOf(Date).isRequired,
+  setDateOfBirth: PropTypes.func.isRequired,
+};

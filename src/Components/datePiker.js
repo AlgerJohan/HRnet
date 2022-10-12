@@ -4,6 +4,7 @@ import range from "lodash/range";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
 
 /**
  * It's a custom date picker that allows the user to select a year and month from a dropdown menu.
@@ -80,3 +81,8 @@ const ChooseDate = ({ value, setStartDate }) => {
   );
 };
 export default ChooseDate;
+
+ChooseDate.propTypes = {
+  value: PropTypes.instanceOf(Date).isRequired,
+  setStartDate: PropTypes.func.isRequired,
+};

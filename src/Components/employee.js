@@ -4,6 +4,7 @@ import DataTable from "./DataMapPages/dataTable";
 import "./css/employee.css";
 import { useSelector } from "react-redux";
 import { selectEmployees } from "../features/homePageSLice";
+import PropTypes from "prop-types";
 /**
  * The Employee function is a React component that uses the useSelector hook to get the employee data
  * from the Redux store and then passes that data to the DataTable component.
@@ -45,3 +46,7 @@ const Employee = () => {
 };
 
 export default Employee;
+
+Employee.propTypes = {
+  employee: PropTypes.array,
+};
