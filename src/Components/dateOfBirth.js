@@ -29,8 +29,9 @@ const ChooseDateOfBirth = ({ value, setDateOfBirth }) => {
   ];
   return (
     <div className="date">
-      <p>Date of Birth</p>
+      <label htmlFor="date of birth">Date of Birth</label>
       <DatePicker
+        id="date of birth"
         renderCustomHeader={({
           date,
           changeYear,

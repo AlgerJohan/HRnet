@@ -28,8 +28,9 @@ const ChooseDate = ({ value, setStartDate }) => {
   ];
   return (
     <div className="date">
-      <p>Start Date</p>
+      <label htmlFor="start date">Start Date</label>
       <DatePicker
+        id="start date"
         renderCustomHeader={({
           date,
           changeYear,

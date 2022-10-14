@@ -2,10 +2,9 @@
   background-color: #625fed;
   color: #fff;
 }
-.container .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container h1 {
+  text-align: center;
+  margin: 0;
 }
 .container .blocPage {
   display: flex;
@@ -14,8 +13,9 @@
   justify-content: center;
 }
 .container .blocPage .link {
-  color: aquamarine;
+  color: #fff;
   font-weight: bold;
+  margin-top: 1rem;
 }
 .container .blocPage #create-employee {
   display: flex;

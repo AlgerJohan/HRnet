@@ -6,9 +6,8 @@ import DateOfBirth from "./dateOfBirth";
 import { useDispatch } from "react-redux";
 import { addEmployees } from "../features/homePageSLice";
 import { states } from "./DataMapPages/homePageData";
-import Modal from "./modal";
 import PropTypes from "prop-types";
-
+import { Modal } from "modallowenski";
 const Homepage = () => {
   /* A hook that allows you to use state in a functional component. */
   const [firstName, setFirstName] = useState("");
@@ -37,10 +36,8 @@ const Homepage = () => {
   /* Returning the JSX code. */
   return (
     <div className="container">
-      <div className="title">
-        <h1>HRnet</h1>
-      </div>
       <div className="blocPage">
+        <h1>HRnet</h1>
         <Link to="/employee" className="link">
           View Current Employees
         </Link>
@@ -49,6 +46,7 @@ const Homepage = () => {
           <div>
             <label htmlFor="first-name">First Name</label>
             <input
+              id="first-name"
               type="text"
               className="input-name"
               value={firstName}
@@ -58,6 +56,7 @@ const Homepage = () => {
 
             <label htmlFor="last-name">Last Name</label>
             <input
+              id="last-name"
               type="text"
               className="input-name"
               required
