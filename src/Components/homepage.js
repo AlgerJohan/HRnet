@@ -1,84 +1,98 @@
 import React, { useState } from "react";
 import "./css/homepage .css";
 import { Link } from "react-router-dom";
-// import Name from "./DataMapPages/name";
-// import Fieldset from "./DataMapPages/fieldset";
-// import Department from "./DataMapPages/Department";
 import StartDate from "./datePiker";
 import DateOfBirth from "./dateOfBirth";
 import { useDispatch } from "react-redux";
 import { addEmployees } from "../features/homePageSLice";
 import { states } from "./DataMapPages/homePageData";
+import PropTypes from "prop-types";
+import { Modal } from "modallowenski";
 const Homepage = () => {
+  /* A hook that allows you to use state in a functional component. */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [startDate, setStartDate] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
-
+  /**
+   * If the user has entered all the required fields, then add the employee to the database.
+   * @param e - event
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEmployees({ firstName, lastName, street, city, state, zipCode, department, dateOfBirth, startDate }));
+    if (firstName && lastName && dateOfBirth && startDate && street && city && state && zipCode && department) {
+      dispatch(addEmployees({ firstName, lastName, dateOfBirth, startDate, street, city, state, zipCode, department }));
+      setShowModal(true);
+    }
   };
-
+  /* Returning the JSX code. */
   return (
     <div className="container">
-      <div className="title">
-        <h1>HRnet</h1>
-      </div>
       <div className="blocPage">
+        <h1>HRnet</h1>
         <Link to="/employee" className="link">
           View Current Employees
         </Link>
         <h2>Create Employee</h2>
         <form id="create-employee" onSubmit={(e) => handleSubmit(e)}>
-          {/* <Name /> */}
           <div>
             <label htmlFor="first-name">First Name</label>
             <input
+              id="first-name"
               type="text"
               className="input-name"
               value={firstName}
+              required
               onChange={(e) => setFirstName(e.target.value)}
             />
 
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" className="input-name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input
+              id="last-name"
+              type="text"
+              className="input-name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
           <DateOfBirth setDateOfBirth={setDateOfBirth} value={dateOfBirth} />
           <StartDate setStartDate={setStartDate} value={startDate} />
           <fieldset className="address">
             <legend>Address</legend>
-
             <label htmlFor="street">Street</label>
-            <input id="street" type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
-
+            <input id="street" type="text" value={street} required onChange={(e) => setStreet(e.target.value)} />
             <label htmlFor="city">City</label>
-            <input id="city" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-
+            <input id="city" type="text" value={city} required onChange={(e) => setCity(e.target.value)} />
             <label htmlFor="state">State</label>
-            <select name="state" id="state" value={state} onChange={(e) => setState(e.target.value)}>
+            <select name="state" id="state" value={state} required onChange={(e) => setState(e.target.value)}>
               <option value="">Select a state</option>
               {states.map((state) => (
-                <option key={state.abbreviation} value={state.name}>
+                <option key={state.abbreviation} value={state.name} required>
                   {state.name}
                 </option>
               ))}
             </select>
-
             <label htmlFor="zip-code">Zip Code</label>
-            <input id="zip-code" type="number" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+            <input id="zip-code" type="number" value={zipCode} required onChange={(e) => setZipCode(e.target.value)} />
           </fieldset>
-          {/* <Fieldset /> */}
-          {/* <Department /> */}
+
           <label htmlFor="department">Department</label>
-          <select value={department} name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
+          <select
+            value={department}
+            name="department"
+            id="department"
+            required
+            onChange={(e) => setDepartment(e.target.value)}
+          >
             <option value="">Select a department</option>
             <option value="Sales">Sales</option>
             <option value="Marketing">Marketing</option>
@@ -86,16 +100,27 @@ const Homepage = () => {
             <option value="Human Resources">Human Resources</option>
             <option value="Legal">Legal</option>
           </select>
+
           <button type="submit" className="save">
             Save
           </button>
         </form>
       </div>
-      {/* <div id="confirmation" className="modal">
-        Employee Created!
-      </div> */}
+      <Modal show={showModal} />
     </div>
   );
 };
 
 export default Homepage;
+
+Homepage.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  dateOfBirth: PropTypes.string,
+  startDate: PropTypes.string,
+  street: PropTypes.string,
+  city: PropTypes.string,
+  state: PropTypes.string,
+  zipCode: PropTypes.string,
+  department: PropTypes.string,
+};

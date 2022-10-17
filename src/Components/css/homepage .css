@@ -2,10 +2,9 @@
   background-color: #625fed;
   color: #fff;
 }
-.container .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container h1 {
+  text-align: center;
+  margin: 0;
 }
 .container .blocPage {
   display: flex;
@@ -14,14 +13,16 @@
   justify-content: center;
 }
 .container .blocPage .link {
-  color: aquamarine;
+  color: #fff;
   font-weight: bold;
+  margin-top: 1rem;
 }
 .container .blocPage #create-employee {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 44px;
+  width: 100%;
 }
 .container .blocPage #create-employee fieldset {
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
@@ -32,7 +33,7 @@
 .container .blocPage #create-employee fieldset #zip-code {
   border-radius: 4px;
   border: 2px;
-  width: 32rem;
+  width: 24.4rem;
   height: 4rem;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
   outline-color: #625fed;
@@ -49,7 +50,7 @@
 .container .blocPage #create-employee .input-name {
   border-radius: 4px;
   border: 2px;
-  width: 32rem;
+  width: 100%;
   height: 4rem;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
   outline-color: #625fed;
@@ -59,6 +60,7 @@
 }
 .container .blocPage #create-employee .address {
   margin-top: 10px;
+  width: auto;
 }
 .container .blocPage #create-employee .save {
   margin-top: 57px;
@@ -82,7 +84,7 @@
 .container .blocPage #create-employee select {
   border-radius: 4px;
   border: 2px;
-  width: 32rem;
+  width: 100%;
   height: 4rem;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
   color: #625fed;
@@ -95,6 +97,7 @@
   font-size: 1rem;
 }
 .container .blocPage #create-employee #department {
+  width: 24.4rem;
   cursor: pointer;
 }
 .container .blocPage #create-employee .date p {
@@ -110,15 +113,21 @@
 .container .blocPage #create-employee .date .react-datepicker__input-container input {
   border-radius: 4px;
   border: 2px;
-  width: 32rem;
+  width: 100%;
   height: 4rem;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
   outline-color: #625fed;
   font-size: 2rem;
   color: #625fed;
 }
-.container #confirmation {
-  display: none;
+.container .blocPage #create-employee .react-datepicker__month-container {
+  width: 21rem;
+}
+.container .blocPage #create-employee .react-datepicker {
+  background-color: #fff;
+}
+.container .blocPage #create-employee .react-datepicker__day-names {
+  margin: 0;
 }
 .container #confirmation.show {
   display: block;
