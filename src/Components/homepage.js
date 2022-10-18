@@ -106,7 +106,7 @@ const Homepage = () => {
           </button>
         </form>
       </div>
-      <Modal show={showModal} />
+      <Modal show={showModal} title="Employee Created!" noKeyEscape={false} />
     </div>
   );
 };

@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^14.4.3",
     "core-js": "^3.25.5",
     "eslint-plugin-import": "^2.26.0",
-    "modallowenski": "^0.1.5",
+    "modallowenski": "^0.2.7",
     "namor": "^2.0.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
